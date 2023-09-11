@@ -1,8 +1,8 @@
 # TikTok Downloader
 
 ## Features:
-1. Download Video With Or Without Watermark
-2. Download Video Sound/ Background Music
+1. Download Video Without Watermark
+2. Download Sound
 3. Download Profile Picture
 
 ## Adding Soon:
