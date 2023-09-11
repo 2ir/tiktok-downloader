@@ -44,43 +44,51 @@ def get_video_id(url):
 
 
 def download_pfp(username):
-    url = f"https://www.tiktok.com/@{username}/"
-    r = requests.get(url, headers={"User-Agent": random.choice(user_agents)})
-    soup = BeautifulSoup(r.text, 'html.parser')
+    print(f"[<] Downloading Profile Picture of @{username}")
     try:
+        url = f"https://www.tiktok.com/@{username}/"
+        r = requests.get(url, headers={"User-Agent": random.choice(user_agents)})
+        soup = BeautifulSoup(r.text, 'html.parser')
         json_data = json.loads(soup.find(id="SIGI_STATE").text.strip())
         pfp_url = json_data["UserModule"]["users"][username]["avatarLarger"]
         pfp = requests.get(pfp_url, headers={"User-Agent": random.choice(user_agents)}).content
         with open(f"{username}_pfp.png", "wb") as file:
             file.write(pfp)
         print(f"[<] Saved as {username}_pfp.png")
-        input()
-        os.system("cls" if os.name == "nt" else "clear")
     except Exception as e:
-        print(e)
-        print(json_data)
-        print(r.status_code)
-
+        print(f"[<] Error: {e}")
+    input()
+    os.system("cls" if os.name == "nt" else "clear")
+    
 
 def download_video(video_id):
-    url = f"https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/feed/?aweme_id={video_id}"
-    r = requests.get(url, headers={"User-Agent": random.choice(user_agents)})
-    video_url = r.json()["aweme_list"][0]["video"]["play_addr"]["url_list"][0]
-    urllib.request.urlretrieve(video_url, f"{video_id}.mp4")
-    print(f"[<] Saved as {video_id}.mp4")
+    try:
+        url = f"https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/feed/?aweme_id={video_id}"
+        r = requests.get(url, headers={"User-Agent": random.choice(user_agents)})
+        video_url = r.json()["aweme_list"][0]["video"]["play_addr"]["url_list"][0]
+        urllib.request.urlretrieve(video_url, f"{video_id}.mp4")
+        print(f"[<] Saved as {video_id}.mp4")
+    except Exception as e:
+        print(f"[<] Error: {e}")
+    input()
+    os.system("cls" if os.name == "nt" else "clear")
 
 
 def download_sound(video_id):
-    url = f"https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/feed/?aweme_id={video_id}"
-    r = requests.get(url, headers={"User-Agent": random.choice(user_agents)})
-    sound_url = r.json()["aweme_list"][0]["music"]["play_url"]["url_list"][0]
-    urllib.request.urlretrieve(sound_url, f"{video_id}.mp3")
+    try:
+        url = f"https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/feed/?aweme_id={video_id}"
+        r = requests.get(url, headers={"User-Agent": random.choice(user_agents)})
+        sound_url = r.json()["aweme_list"][0]["music"]["play_url"]["url_list"][0]
+        urllib.request.urlretrieve(sound_url, f"{video_id}.mp3")
+    except Exception as e:
+        print(f"[<] Error: {e}")
+    input()
+    os.system("cls" if os.name == "nt" else "clear")
 
 
 def main():
     os.system("cls" if os.name == "nt" else "clear")
     while True:
-        #os.system("cls" if os.name == "nt" else "clear")
         print(menu)
         option = input("[>] ")
         if option == "1":
@@ -90,8 +98,6 @@ def main():
             video_id = get_video_id(url=video_url)
             print(f"\n\n[<] {video_id}")
             download_video(video_id)
-            print("meow")
-            input()
             
         elif option == "2":
             os.system("cls" if os.name == "nt" else "clear")
@@ -100,13 +106,13 @@ def main():
             video_id = get_video_id(url=video_url)
             print(f"\n\n[<] {video_id}")
             download_sound(video_id)
-            input()
             
         elif option == "3":
             os.system("cls" if os.name == "nt" else "clear")
             print("[<] username")
             username = input("[>] @")
             download_pfp(username)
-            
+
+
 
 main()
