@@ -7,6 +7,6 @@
 4. Download Video With Watermark
 
 [Installation](installation.md)
-
+[Contributing](contributing.md)
 
 [Contact](mailto:caio697@protonmail.com)
