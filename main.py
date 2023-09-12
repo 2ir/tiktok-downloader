@@ -10,7 +10,8 @@ import string
 
 
 
-menu = """[1] Download Video (no watermark)
+menu = """TikTok Downloader
+[1] Download Video (no watermark)
 [2] Download Video Sound
 [3] Download Profile Picture
 [4] Download Video (with watermark)
