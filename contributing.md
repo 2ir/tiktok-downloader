@@ -1,7 +1,7 @@
 # Contributing
 
 1. Fork the repository to your GitHub account.
-2. Create a new branch for your contributions:
+2. Create a new branch for your contributions.
 3. Make your changes.
 4. Submit a pull request with a clear description of your changes.
 
