@@ -55,7 +55,7 @@ def get_video_id_app(url):
             print("[<] Invalid url")
         return video_id
     except AttributeError as e:
-        print("[<] Error: {e} (\n    {meta_tag}\n)")
+        print(f"[<] Error: {e} (\n    {meta_tag}\n)")
 
 
 def get_video_id(url):
