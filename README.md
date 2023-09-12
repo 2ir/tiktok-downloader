@@ -2,7 +2,7 @@
 
 ## Features
 1. Download Video Without Watermark
-2. Download Sound
+2. Download Video Sound
 3. Download Profile Picture
 4. Download Video With Watermark
 
