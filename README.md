@@ -6,4 +6,6 @@
 3. Download Profile Picture
 4. Download Video With Watermark
 
+[Installation](installation.md)
+
 [Contact](mailto:caio697@protonmail.com)
