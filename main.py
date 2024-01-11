@@ -18,11 +18,8 @@ menu = """TikTok Downloader
 """
 
 
-user_agents = []
 with open("user_agents.json", "r", encoding="UTF-8") as user_agents_file:
-    user_agents_json = json.loads(user_agents_file.read())
-    for user_agent in user_agents_json:
-        user_agents.append(user_agent["ua"])
+    user_agents = [user_agent["ua"] for user_agent in json.load(user_agents_file)]
 
 
 
